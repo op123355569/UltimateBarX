@@ -25,7 +25,7 @@ internal class FragmentOperator private constructor(val fragment: Fragment, conf
         val navLight = manager.getNavigationBarConfig(fragment).light
         fragment.requireActivity().setSystemUiFlagWithLight(config.light, navLight)
         fragment.updateStatusBar(config)
-        fragment.requireActivity().defaultNavigationBar()
+//        fragment.requireActivity().defaultNavigationBar()
         fragment.addObserver()
         fragment.requireActivity().addObserver()
     }

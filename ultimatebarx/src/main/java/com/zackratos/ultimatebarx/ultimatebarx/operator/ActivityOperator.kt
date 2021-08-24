@@ -24,7 +24,7 @@ internal class ActivityOperator private constructor(val activity: FragmentActivi
         val navLight = manager.getNavigationBarConfig(activity).light
         activity.setSystemUiFlagWithLight(config.light, navLight)
         activity.updateStatusBar(config)
-        activity.defaultNavigationBar()
+//        activity.defaultNavigationBar()
         activity.addObserver()
     }
 
