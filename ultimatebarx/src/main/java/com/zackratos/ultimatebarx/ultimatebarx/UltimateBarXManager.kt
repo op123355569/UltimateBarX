@@ -20,7 +20,7 @@ import java.lang.reflect.Field
  * @email    : 869649338@qq.com
  * @Describe : 管理类，主要用于存储 Activity 和 Fragment 当前的状态
  */
-internal class UltimateBarXManager private constructor(){
+internal class UltimateBarXManager private constructor() {
     companion object {
         val instance: UltimateBarXManager
             get() = Holder.INSTANCE
@@ -35,19 +35,22 @@ internal class UltimateBarXManager private constructor(){
     internal lateinit var context: Context
 
     internal val fragmentViewFiled: Field by lazy { Fragment::class.java.getDeclaredField("mView").apply { isAccessible = true } }
+
     // 保存 Activity 的 StatusBar 是否设置过
     private val staDefMap: MutableMap<String, Boolean> by lazy { ArrayMap<String, Boolean>() }
+
     // 保存 Activity 的 NavigationBar 是否设置过
     private val navDefMap: MutableMap<String, Boolean> by lazy { ArrayMap<String, Boolean>() }
+
     // 保存是否已经 AddObserver
     private val addObsMap: MutableMap<String, Boolean> by lazy { ArrayMap<String, Boolean>() }
+
     // 保存是否已经初始化
     private val initializationMap: MutableMap<String, Boolean> by lazy { ArrayMap<String, Boolean>() }
 
     private val staConfigMap: MutableMap<String, BarConfig> by lazy { ArrayMap<String, BarConfig>() }
 
     private val navConfigMap: MutableMap<String, BarConfig> by lazy { ArrayMap<String, BarConfig>() }
-
 
 
     internal fun removeAllData(owner: LifecycleOwner) {
@@ -88,21 +91,21 @@ internal class UltimateBarXManager private constructor(){
     @RequiresApi(Build.VERSION_CODES.KITKAT)
     internal fun putOriginConfig(activity: FragmentActivity) {
         @ColorInt val statusBarColor: Int
-        @ColorInt val navigationBarColor: Int
+//        @ColorInt val navigationBarColor: Int
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
             statusBarColor = Color.BLACK
-            navigationBarColor = Color.BLACK
+//            navigationBarColor = Color.BLACK
         } else {
             statusBarColor = activity.window?.statusBarColor ?: Color.TRANSPARENT
-            navigationBarColor = activity.window?.navigationBarColor ?: Color.TRANSPARENT
+//            navigationBarColor = activity.window?.navigationBarColor ?: Color.TRANSPARENT
         }
         val staConfig = getStatusBarConfig(activity)
         staConfig.background.color = statusBarColor
         putStatusBarConfig(activity, staConfig)
-        val navConfig = getNavigationBarConfig(activity)
-        navConfig.background.color = navigationBarColor
-        navConfig.light = calculateLight(navigationBarColor)
-        putNavigationBarConfig(activity, navConfig)
+//        val navConfig = getNavigationBarConfig(activity)
+//        navConfig.background.color = navigationBarColor
+//        navConfig.light = calculateLight(navigationBarColor)
+//        putNavigationBarConfig(activity, navConfig)
     }
 
     private fun calculateLight(@ColorInt color: Int) = color > (Color.BLACK + Color.WHITE / 2)

@@ -59,10 +59,10 @@ internal fun Fragment.ultimateBarXInitialization() {
     // 不能取 Activity 的 originColor 然后计算 light
     // 防止 Activity 之前设置了 light ，但是被通过 originColor 计算的 light 覆盖掉
 //    manager.putNavigationBarLight(this, manager.getNavigationBarLight(requireActivity()))
-    val actNavConfig = manager.getNavigationBarConfig(requireActivity())
-    val navConfig = manager.getNavigationBarConfig(this)
-    navConfig.light = actNavConfig.light
-    manager.putNavigationBarConfig(this, navConfig)
+//    val actNavConfig = manager.getNavigationBarConfig(requireActivity())
+//    val navConfig = manager.getNavigationBarConfig(this)
+//    navConfig.light = actNavConfig.light
+//    manager.putNavigationBarConfig(this, navConfig)
     fixBottomNavigationViewPadding()
     manager.putInitialization(this)
 }

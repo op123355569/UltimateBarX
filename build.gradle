@@ -28,6 +28,6 @@ task clean(type: Delete) {
 
 ext {
     ultimatebarx_version = '0.6.1'
-    versionCode = 20
-    versionName = "0.6.1"
+    versionCode = 102
+    versionName = "1.0.2"
 }

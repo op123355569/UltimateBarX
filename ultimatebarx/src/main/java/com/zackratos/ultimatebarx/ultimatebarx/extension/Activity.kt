@@ -25,19 +25,19 @@ internal fun FragmentActivity.barTransparent() {
     when {
         Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q -> {
             window.isStatusBarContrastEnforced = false
-            window.isNavigationBarContrastEnforced = false
+//            window.isNavigationBarContrastEnforced = false
         }
     }
     when {
         Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP -> {
             window.statusBarColor = Color.TRANSPARENT
-            window.navigationBarColor = Color.TRANSPARENT
+//            window.navigationBarColor = Color.TRANSPARENT
         }
         Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT -> {
             if (window.attributes.flags and WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS == 0)
                 window.addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS)
-            if (window.attributes.flags and WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION == 0)
-                window.addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION)
+//            if (window.attributes.flags and WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION == 0)
+//                window.addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION)
         }
     }
 }
@@ -51,7 +51,7 @@ private fun systemUiFlag(statusBarLight: Boolean, navigationBarLight: Boolean): 
     when {
         Build.VERSION.SDK_INT >= Build.VERSION_CODES.O -> {
             if (statusBarLight) flag = flag or View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
-            if (navigationBarLight) flag = flag or View.SYSTEM_UI_FLAG_LIGHT_NAVIGATION_BAR
+//            if (navigationBarLight) flag = flag or View.SYSTEM_UI_FLAG_LIGHT_NAVIGATION_BAR
         }
         Build.VERSION.SDK_INT >= Build.VERSION_CODES.M -> {
             if (statusBarLight) flag = flag or View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
