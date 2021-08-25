@@ -45,8 +45,8 @@ internal fun FragmentActivity.barTransparent() {
 @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
 private fun systemUiFlag(statusBarLight: Boolean, navigationBarLight: Boolean): Int {
 
-    var flag = (View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
-            or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+    var flag = (/*View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+            or*/ View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
             or View.SYSTEM_UI_FLAG_LAYOUT_STABLE)
     when {
         Build.VERSION.SDK_INT >= Build.VERSION_CODES.O -> {
